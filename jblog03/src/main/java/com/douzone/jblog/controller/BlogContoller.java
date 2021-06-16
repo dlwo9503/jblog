@@ -37,13 +37,8 @@ public class BlogContoller {
 			categoryNo = pathNo1.get();
 		}
 			
-//		System.out.println("id:" + id);
-//		System.out.println("category:" + categoryNo);
-//		System.out.println("post:" + postNo);
-		System.out.println(id);
 		BlogVo blogVo = blogService.findTitle(id);
 		model.addAttribute("blogVo", blogVo);
-		System.out.println(blogVo);
 		application.setAttribute("title", blogVo.getTitle());
 		return "blog/index";
 	}
