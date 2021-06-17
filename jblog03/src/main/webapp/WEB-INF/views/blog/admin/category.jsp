@@ -51,6 +51,7 @@
 				</table>
       	
       			<h4 class="n-c">새로운 카테고리 추가</h4>
+      			<form action="${pageContext.request.contextPath }/${authUser.id }/admin/category/add" method="post">
 		      	<table id="admin-cat-add">
 		      		<tr>
 		      			<td class="t">카테고리명</td>
@@ -65,6 +66,7 @@
 		      			<td><input type="submit" value="카테고리 추가"></td>
 		      		</tr>      		      		
 		      	</table> 
+		      	</form>
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/blog/includes/footer.jsp" />

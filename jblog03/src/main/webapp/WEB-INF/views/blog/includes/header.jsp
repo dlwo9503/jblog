@@ -6,7 +6,7 @@
 
 <div id="header">
 	<a href="${pageContext.request.contextPath }/${authUser.id }">
-		<h1>${title }</h1>
+		<h1>${blogVo.title }</h1>
 	</a>
 	<ul>
 		<c:choose>
