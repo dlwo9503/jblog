@@ -7,4 +7,28 @@
 			select no, title, contents, reg_date regDate, category_no categoryNo from post where category_no=#{category_no }
 		]]>
 	</select>
+	
+	<select id="findNo" parameterType="long" resultType="long">
+		<![CDATA[
+			select no from post where category_no=#{category_no } limit 1
+		]]>
+	</select>
+	
+	<select id="findAll2" parameterType="long" resultType="postvo">
+		<![CDATA[
+			select no, title, contents, reg_date regDate, category_no categoryNo from post where no=#{no }
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="long">
+		<![CDATA[
+			select b.no, ifnull(count(*), 0) from blog a, category b, post c where a.id = b.blog_id and a.id=#{id } and b.no = c.category_no group by b.no
+		]]>
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		<![CDATA[
+			delete from post where no=#{no }
+		]]>
+	</delete>
 </mapper>

@@ -6,6 +6,7 @@ public class CategoryVo {
 	private String desc;
 	private String regDate;
 	private String blogId;
+	private int count;
 	public int getNo() {
 		return no;
 	}
@@ -36,9 +37,15 @@ public class CategoryVo {
 	public void setBlogId(String blogId) {
 		this.blogId = blogId;
 	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	@Override
 	public String toString() {
 		return "CategoryVo [no=" + no + ", name=" + name + ", desc=" + desc + ", regDate=" + regDate + ", blogId="
-				+ blogId + "]";
+				+ blogId + ", count=" + count + "]";
 	}
 }

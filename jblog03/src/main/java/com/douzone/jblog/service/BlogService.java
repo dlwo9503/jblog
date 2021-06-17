@@ -18,4 +18,8 @@ public class BlogService {
 	public BlogVo findTitle(String id) {
 		return boardRepository.findTitle(id);
 	}
+
+	public void updateBlog(BlogVo blogVo) {
+		boardRepository.updateBlog(blogVo);
+	}
 }

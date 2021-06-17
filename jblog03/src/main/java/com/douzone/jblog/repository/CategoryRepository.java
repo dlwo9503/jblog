@@ -27,4 +27,17 @@ public class CategoryRepository {
 	public List<CategoryVo> findAll(String id) {
 		return sqlSession.selectList("category.findAll", id);
 	}
+	
+	public List<CategoryVo> findByNo(int no) {
+		return sqlSession.selectList("category.findByNo", no);
+	}
+
+	public Long findNo(String id) {
+		return sqlSession.selectOne("category.findNo", id);
+	}
+
+	public boolean delete(int no) {
+		int count = sqlSession.delete("category.delete", no);
+		return count == 1;
+	}
 }

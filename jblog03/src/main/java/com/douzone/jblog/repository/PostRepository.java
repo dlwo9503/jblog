@@ -16,4 +16,24 @@ public class PostRepository {
 	public List<PostVo> findAll(Long categoryNo) {
 		return sqlSession.selectList("post.findAll", categoryNo);
 	}
+
+	public Long findNo(Long categoryNo) {
+		return sqlSession.selectOne("post.findNo", categoryNo);
+	}
+
+	public PostVo findAll2(Long postNo) {
+		return sqlSession.selectOne("post.findAll2", postNo);
+	}
+	
+	public Long postCount(String id) {
+		return sqlSession.selectOne("post.postCount", id);
+	}
+
+	public void insert(PostVo postVo) {
+		sqlSession.insert("post.insert", postVo);
+	}
+
+	public void delete(int no) {
+		sqlSession.delete("post.delete", no);
+	}
 }

@@ -2,10 +2,12 @@ package com.douzone.jblog.controller;
 
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -62,7 +64,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String join(@ModelAttribute UserVo vo, Model model) {
+	public String join(@ModelAttribute @Valid UserVo vo, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			model.addAllAttributes(result.getModel()); // All을 사용하면 map의 키와 값을 모두 넘길 수 있음
+			return "user/join";
+		}
 		userService.join(vo);
 		blogService.create(vo.getId());
 		categoryService.create(vo.getId());

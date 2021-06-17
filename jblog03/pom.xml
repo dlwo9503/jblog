@@ -22,6 +22,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
+			<!-- JCL 제외 -->
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Spring Web MVC -->
@@ -142,7 +149,6 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -161,7 +167,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<configuration>
-					<url>http://192.168.254.31:8080/manager/text</url>
+					<url>http://192.168.0.95:8080/manager/text</url>
 					<path>/jblog03</path>
 					<username>admin</username>
 					<password>manager</password>

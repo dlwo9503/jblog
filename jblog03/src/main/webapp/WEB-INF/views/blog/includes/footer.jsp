@@ -6,7 +6,7 @@
 <div id="footer">
 	<p>
 		<a href="${pageContext.request.contextPath }">
-			<strong>Spring 이야기</strong> is powered by JBlog (c)2021
+			<strong>${blogVo.title }</strong> is powered by JBlog (c)2021
 		</a>
 	</p>
 </div>
