@@ -15,7 +15,7 @@
 		<div id="wrapper">
 			<div id="content">
 				<div class="blog-content">
-					<h4><!-- Spring Camp 2016 참여기<br> -->${postVo1.title }</h4>
+					<h4>${postVo1.title }</h4>
 					<p>
 						${postVo1.contents }
 					<p>

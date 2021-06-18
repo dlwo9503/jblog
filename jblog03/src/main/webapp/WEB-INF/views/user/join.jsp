@@ -14,6 +14,7 @@
 <script src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js" type="text/javascript"></script> <!-- js 소스를 땡겨와서 이부분에서 사용할거임 -->
 <script>
 $(function(){ // $가 붙으면 jQuery라고 생각하면 됨
+
 	btn = $('#btn-check'); // #을 붙여주면 id를 찾음
 	btn.click(function(){ // btn을 click하면 함수를 실행해라
 		var id = $("#id").val();
@@ -43,6 +44,7 @@ $(function(){ // $가 붙으면 jQuery라고 생각하면 됨
 				
 				$("#btn-check").hide(); // 숨기기
 				$("#img-check").show(); // 보이기
+				$("#id").attr("readonly","readonly");
 			}
 		});
 	});
@@ -76,7 +78,7 @@ $(function(){ // $가 붙으면 jQuery라고 생각하면 됨
 			</p>
 
 			<label class="block-label" for="password">패스워드</label>
-			<form:input path="password" />
+			<form:input path="password" type="password"/>
 			<!-- <input id="password" name="password" type="password" /> -->
 			<p style="color:#f00; text-align:left; padding-left:0px">
 				<form:errors path="password" />
