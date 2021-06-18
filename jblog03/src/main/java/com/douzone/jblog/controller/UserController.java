@@ -31,20 +31,6 @@ public class UserController {
 		return "user/login";
 	}
 	
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-// 	public String login(
-// 			@RequestParam(value = "id", required = true, defaultValue = "") String id,
-// 			@RequestParam(value = "password", required = true, defaultValue = "") String password, Model model, HttpSession session) {
-// 		UserVo authUser = userService.getUser(id, password);
-// 		if(authUser == null) {
-// 			model.addAttribute("result", "fail");
-// 			model.addAttribute("id", id);
-// 			return "user/login";
-// 		}
-// 		session.setAttribute("authUser", authUser);
-// 		return "redirect:/";
-// 	}
-	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join(@ModelAttribute UserVo vo) {
 		return "user/join";
