@@ -10,7 +10,7 @@
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<mvc:annotation-driven /> <!-- 일단 오류떠서 막아놓음 -->
+	<!-- <mvc:annotation-driven /> --> <!-- 일단 오류떠서 막아놓음 -->
 
 	<!-- auto proxy -->
 	<aop:aspectj-autoproxy />
@@ -104,6 +104,6 @@
 
 	<context:annotation-config /> <!-- 이거 하나가 매핑과 컨트롤러를 다 자동으로 해줌 -->
 	<context:component-scan
-		base-package="com.douzone.jblog.controller" /> <!-- 이거랑 패키지 이름이랑 동일해야 함 -->
+		base-package="com.douzone.jblog.controller, com.douzone.jblog.exception" /> <!-- 이거랑 패키지 이름이랑 동일해야 함 -->
 
 </beans>

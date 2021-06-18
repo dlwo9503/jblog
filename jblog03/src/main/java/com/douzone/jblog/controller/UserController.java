@@ -1,7 +1,6 @@
 package com.douzone.jblog.controller;
 
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.douzone.jblog.service.BlogService;
 import com.douzone.jblog.service.CategoryService;
@@ -33,30 +31,19 @@ public class UserController {
 		return "user/login";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
- 	public String login(
- 			@RequestParam(value = "id", required = true, defaultValue = "") String id,
- 			@RequestParam(value = "password", required = true, defaultValue = "") String password, Model model, HttpSession session) {
- 		UserVo authUser = userService.getUser(id, password);
- 		if(authUser == null) {
- 			model.addAttribute("result", "fail");
- 			model.addAttribute("id", id);
- 			return "user/login";
- 		}
- 		session.setAttribute("authUser", authUser);
- 		return "redirect:/";
- 	}
-
- 	@RequestMapping("/logout")
- 	public String logout(HttpSession session) {
- 		UserVo authUser = (UserVo)session.getAttribute("authUser");
- 		if(authUser == null) {
- 			return "redirect:/";
- 		}
- 		session.removeAttribute("authUser");
- 		session.invalidate();
- 		return "redirect:/";
- 	}
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+// 	public String login(
+// 			@RequestParam(value = "id", required = true, defaultValue = "") String id,
+// 			@RequestParam(value = "password", required = true, defaultValue = "") String password, Model model, HttpSession session) {
+// 		UserVo authUser = userService.getUser(id, password);
+// 		if(authUser == null) {
+// 			model.addAttribute("result", "fail");
+// 			model.addAttribute("id", id);
+// 			return "user/login";
+// 		}
+// 		session.setAttribute("authUser", authUser);
+// 		return "redirect:/";
+// 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join(@ModelAttribute UserVo vo) {
@@ -78,5 +65,9 @@ public class UserController {
 	@RequestMapping(value = "/joinsuccess")
 	public String joinsuccess() {
 		return "user/joinsuccess";
+	}
+	
+	@RequestMapping(value="/auth", method=RequestMethod.POST)
+	public void auth() {
 	}
 }
