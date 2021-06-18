@@ -4,7 +4,7 @@
 <mapper namespace="blog">
 	<insert id="insert" parameterType="string">
 		<![CDATA[
-			insert into blog values(#{id }, CONCAT(#{id }, '의 블로그'), 'assets/images/logo2.jpeg')
+			insert into blog values(#{id }, CONCAT(#{id }, '의 블로그'), '/assets/images/logo2.jpeg')
 		]]>
 	</insert>
 	
