@@ -15,29 +15,30 @@
 		<div id="wrapper">
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
-					<li class="selected">기본설정</li>
+					<li><a href="${pageContext.request.contextPath}/${authUser.id }/admin/basic">기본설정</a></li>
 					<li><a href="${pageContext.request.contextPath}/${authUser.id }/admin/category">카테고리</a></li>
-					<li><a href="${pageContext.request.contextPath}/${authUser.id }/admin/write">글작성</a></li>
+					<li class="selected">글작성</li>
 				</ul>
-				<form method="post" action="${pageContext.request.contextPath }/${authUser.id }/admin/update" enctype="multipart/form-data">
-	 		      	<table class="admin-config">
+				<form action="${pageContext.request.contextPath}/${authUser.id }/admin/write" method="post">
+			      	<table class="admin-cat-write">
 			      		<tr>
-			      			<td class="t">블로그 제목</td>
-			      			<td><input type="text" size="40" name="title" value="${blogVo.title }"></td>
+			      			<td class="t">제목</td>
+			      			<td>
+			      				<input type="text" size="60" name="title">
+				      			<select name="categoryNo">
+				      			<c:forEach items="${categoryVo }" var="categoryVo" >
+				      				<option value="${categoryVo.no }">${categoryVo.name }</option>
+				      			</c:forEach>
+				      			</select>
+				      		</td>
 			      		</tr>
 			      		<tr>
-			      			<td class="t">로고이미지</td>
-			      			<td><img id="logo" src="${pageContext.request.contextPath}${blogVo.logo }">     
-			      				<input type="hidden" name="logo" value="${blogVo.logo }">
-							</td>
+			      			<td class="t">내용</td>
+			      			<td><textarea name="contents"></textarea></td>
 			      		</tr>
 			      		<tr>
-			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" name="file1"></td>      			
-			      		</tr>
-			      		<tr>
-			      			<td class="t">&nbsp;</td>
-			      			<td class="s"><input type="submit" value="기본설정 변경"></td>      			
+			      			<td>&nbsp;</td>
+			      			<td class="s"><input type="submit" value="포스트하기"></td>
 			      		</tr>
 			      	</table>
 				</form>
