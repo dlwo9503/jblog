@@ -79,7 +79,6 @@ $(function(){ // $가 붙으면 jQuery라고 생각하면 됨
 
 			<label class="block-label" for="password">패스워드</label>
 			<form:input path="password" type="password"/>
-			<!-- <input id="password" name="password" type="password" /> -->
 			<p style="color:#f00; text-align:left; padding-left:0px">
 				<form:errors path="password" />
 			</p>
