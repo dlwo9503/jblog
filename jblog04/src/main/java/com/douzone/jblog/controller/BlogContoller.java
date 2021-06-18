@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.douzone.jblog.security.Auth;
 import com.douzone.jblog.service.BlogService;
 import com.douzone.jblog.service.CategoryService;
 import com.douzone.jblog.service.FileUploadService;
@@ -65,11 +66,13 @@ public class BlogContoller {
 		return "blog/index";
 	}
 	
+	@Auth
 	@RequestMapping("/admin/basic")
 	public String adminBasic(@PathVariable("id") String id) { // auth에서 id로 admin인지 체크
 		return "blog/admin/basic";
 	}
 	
+	@Auth
 	@RequestMapping("/admin/category")
 	public String adminCategory(@PathVariable("id") String id, Model model) { // auth에서 id로 admin인지 체크
 		List<CategoryVo> categoryVo = categoryService.findAll(id);
@@ -77,6 +80,7 @@ public class BlogContoller {
 		return "blog/admin/category";
 	}
 	
+	@Auth
 	@RequestMapping(value="/admin/write", method = RequestMethod.GET)
 	public String adminWrite(@PathVariable("id") String id, Model model) { // auth에서 id로 admin인지 체크
 		List<CategoryVo> categoryVo = categoryService.findAll(id);

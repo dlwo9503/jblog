@@ -17,7 +17,7 @@
       		<label>아이디</label> 
       		<input type="text" name="id">
       		<label>패스워드</label> 
-      		<input type="text" name="password">
+      		<input type="password" name="password" style="margin-bottom: 10px; width: 230px; padding: 5px">
       		<c:if test='${result == "fail"}'>
 				<p>로그인이 실패 했습니다.</p>
 			</c:if>

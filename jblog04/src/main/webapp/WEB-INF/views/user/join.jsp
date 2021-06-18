@@ -43,6 +43,7 @@ $(function(){ // $가 붙으면 jQuery라고 생각하면 됨
 				
 				$("#btn-check").hide(); // 숨기기
 				$("#img-check").show(); // 보이기
+				$("#id").attr("readonly","readonly");
 			}
 		});
 	});
@@ -76,8 +77,7 @@ $(function(){ // $가 붙으면 jQuery라고 생각하면 됨
 			</p>
 
 			<label class="block-label" for="password">패스워드</label>
-			<form:input path="password" />
-			<!-- <input id="password" name="password" type="password" /> -->
+			<form:input path="password" type="password"/>
 			<p style="color:#f00; text-align:left; padding-left:0px">
 				<form:errors path="password" />
 			</p>

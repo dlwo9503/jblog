@@ -49,6 +49,14 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			return false;
 		}
 		
+		String[] divId = request.getRequestURL().toString().split("/");
+		String id = divId[4];
+		
+		if(id.equals(authUser.getId()) == false) {
+			response.sendRedirect(request.getContextPath());
+			return false;
+		}
+		
 		return true;
 	}
 
