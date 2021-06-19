@@ -105,12 +105,14 @@ public class BlogContoller {
 	public String updateMain(@PathVariable("id") String id, BlogVo blogVo, @RequestParam("file1") MultipartFile file1, Model model) {
 		if(file1.isEmpty()) {
 			blogService.updateBlog(blogVo);
-			return "redirect:/" + id;
+			application.setAttribute("blogVo", blogVo);
+			return "redirect:/" + id + "/admin/basic";
 		} else {
 			String url = fileUploadService.restore(file1);
 			blogVo.setLogo(url);
 			blogService.updateBlog(blogVo);
-			return "redirect:/" + id;
+			application.setAttribute("blogVo", blogVo);
+			return "redirect:/" + id + "/admin/basic";
 		}
 	}
 	
