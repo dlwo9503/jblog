@@ -14,7 +14,6 @@
 <script src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js" type="text/javascript"></script> <!-- js 소스를 땡겨와서 이부분에서 사용할거임 -->
 <script>
 $(function(){ // $가 붙으면 jQuery라고 생각하면 됨
-
 	btn = $('#btn-check'); // #을 붙여주면 id를 찾음
 	btn.click(function(){ // btn을 click하면 함수를 실행해라
 		var id = $("#id").val();
