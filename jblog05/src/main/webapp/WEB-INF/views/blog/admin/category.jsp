@@ -8,6 +8,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
 <Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+var fetch = function(){
+	$.ajax({
+		url: "${pageContext.request.contextPath}/${authUser.id }/admin/category",
+		dataType: "json",
+		type: "get",
+		success: function(response){
+			response.data.forEach(function(categoryVo){
+				html =
+					"<tr>" + 
+						"<td>" + categoryVo.no + "</td>" + 
+						"<td>" + categoryVo.name + "</td>" + 
+						"<td>" + categoryVo.count + "</td>" + 
+						"<td>" + categoryVo.desc + "</td>" + 
+					"</tr>";
+				$("#list-category").append(html);	
+			});
+		}
+	});
+}
+$(function(){
+	fetch();
+}
+</script>
 </head>
 <body>
 	<div id="container">
@@ -28,7 +54,7 @@
 		      			<th>삭제</th>      			
 		      		</tr>
 		      		<c:forEach items="${categoryVo }" var="categoryVo" varStatus="status">
-					<tr>
+					<tr id="list-category">
 						<td>${categoryVo.no }</td>
 						<td>${categoryVo.name }</td>
 						<td>${categoryVo.count }</td>
