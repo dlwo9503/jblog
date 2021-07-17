@@ -66,13 +66,13 @@ public class BlogContoller {
 		return "blog/index";
 	}
 	
-	@Auth
+//	@Auth
 	@RequestMapping("/admin/basic")
 	public String adminBasic(@PathVariable("id") String id) { // auth에서 id로 admin인지 체크
 		return "blog/admin/basic";
 	}
 	
-	@Auth
+//	@Auth
 	@RequestMapping("/admin/category")
 	public String adminCategory(@PathVariable("id") String id, Model model) { // auth에서 id로 admin인지 체크
 		List<CategoryVo> categoryVo = categoryService.findAll(id);
@@ -80,7 +80,7 @@ public class BlogContoller {
 		return "blog/admin/category";
 	}
 	
-	@Auth
+//	@Auth
 	@RequestMapping(value="/admin/write", method = RequestMethod.GET)
 	public String adminWrite(@PathVariable("id") String id, Model model) { // auth에서 id로 admin인지 체크
 		List<CategoryVo> categoryVo = categoryService.findAll(id);
